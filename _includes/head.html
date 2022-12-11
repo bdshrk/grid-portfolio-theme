@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} - {{ site.title }}</title>
+    <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+    <!--<meta name="darkreader" content="random phrase here">-->
+    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    {% include code-block-expand.html %}
+    {% include image-zoom.html %}
+</head>
+<body>
+    <div id="overlay">
+        <div id="overlay-center">
+            <img src="" alt="" id="overlay-image">
+        </div>
+    </div>
+    <div class="container">

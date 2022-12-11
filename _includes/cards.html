@@ -1,0 +1,76 @@
+<div class="card-container">
+	{% for post in site.posts limit:999 %}
+	<div class="card-item">
+		<a class="reset-link" href="{{ post.url }}">
+			{% if post.splash %}
+			<div class="card" style="background-image: url({{ post.splash }})">
+			{% else %}
+			<div class="card" style="background-image: url('assets/bg.jpg')">
+			{% endif %}
+				<div class="carousel-item-container">
+					<p class="card-link">
+						<span class="carousel-item-title">{{ post.title }}</span>
+					</p>
+					<hr>
+					{% if post.tags.size > 0 %}
+					<p style="text-align: left;">
+						{{ post.tags | sort | join: ", " }}
+					</p>
+					<hr>
+					{% endif %}
+					<p style="text-align: center;">
+						<span class="date">{{ post.date | date: "%Y-%m-%d" }}</span>
+					</p>
+				</div>
+			</div>
+		</a>
+	</div>
+	{% endfor %}
+</div>
+
+<script>
+	// https://codepen.io/nelsonr/pen/WNQaZPb
+	function map(val, minA, maxA, minB, maxB) {
+		return minB + ((val - minA) * (maxB - minB)) / (maxA - minA);
+	}
+
+	function Card3D(card, ev) {
+		let amount = 10
+		let img = card.querySelector('.card');
+		let imgRect = card.getBoundingClientRect();
+		let width = imgRect.width;
+		let height = imgRect.height;
+		let mouseX = ev.x - imgRect.x;
+		let mouseY = ev.y - imgRect.y;
+		let rotateY = map(mouseX, 0, width, -amount, amount);
+		let rotateX = map(mouseY, 0, height, amount, -amount);
+		let brightness = map(mouseY, 0, height, 1.25, 0.75);
+
+		img.style.transform = `perspective(500px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+		img.style.filter = `brightness(${brightness})`;
+	}
+
+	var cards = document.querySelectorAll('.card-item');
+
+	cards.forEach((card) => {
+		card.addEventListener('mousemove', (ev) => {
+			Card3D(card, ev);
+		});
+
+		card.addEventListener('mouseenter', (ev) => {
+			let img = card.querySelector('.card');
+			card.querySelector('.carousel-item-container').classList.add('carousel-item-container-visible');
+			img.classList.add('card-hover-shadow');
+		});
+
+		card.addEventListener('mouseleave', (ev) => {
+			let img = card.querySelector('.card');
+
+			img.style.transform = 'rotateX(0deg) rotateY(0deg)';
+			img.style.filter = 'brightness(1)';
+
+			card.querySelector('.carousel-item-container').classList.remove('carousel-item-container-visible');
+			img.classList.remove('card-hover-shadow');
+		});
+	});
+</script>

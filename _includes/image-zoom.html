@@ -1,0 +1,22 @@
+<script>
+	document.addEventListener("DOMContentLoaded", function () {
+		overlay = document.getElementById("overlay");
+		overlay_image = document.getElementById("overlay-image");
+		overlay.addEventListener("click", () => {
+			overlay.style = "pointer-events: none; opacity: 0;";
+		});
+
+		images = document.querySelectorAll("img");
+		for (let i = 0; i < images.length; i++) {
+			if (images[i].src == "") {
+				continue;
+			}
+
+			images[i].addEventListener("click", () => {
+				overlay_image.src = "";
+				overlay_image.src = images[i].src;
+				overlay.style = "pointer-events: visible; opacity: 1;";
+			});
+		}
+	});
+</script>

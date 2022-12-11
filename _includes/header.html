@@ -1,0 +1,21 @@
+<div class="navbar">
+	<a href="/" class="reset-link" style="">
+		<div class="site-logo"></div>
+	</a>
+	<div class="site-info">
+		<h1 class="main-title">
+			<a href="/" style="color: inherit; text-decoration: inherit;">{{ site.title }}</a>
+		</h1>
+		<nav class="navigation">
+			{% assign sorted = site.pages
+				| sort: "navindex"
+			%}
+			{% for page in sorted %}
+				{% if page.navindex %}
+					<a href="{{ page.url }}">{{ page.title }}</a>
+				{% endif %}
+			{% endfor %}
+		</nav>
+	</div>
+</div>
+<hr class="min-size">

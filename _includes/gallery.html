@@ -1,0 +1,7 @@
+<div class="image-gallery">
+	{% assign srces_split = include.srces | split: "," %}
+	{% assign total = srces_split.size | at_most: 4 %}
+	{% for src in srces_split %}
+		<img src="{{ src | strip }}" alt="Image" style="max-width: {{ 100 | divided_by: total | minus: 2.5 }}%;">
+	{% endfor %}
+</div>

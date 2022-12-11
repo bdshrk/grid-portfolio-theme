@@ -1,0 +1,20 @@
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        collection = document.querySelectorAll("div.highlight");
+        for (let i = 0; i < collection.length; i++) {
+            if (collection[i].offsetHeight <= 150) {
+                continue;
+            }
+
+            collection[i].setAttribute("data-height", collection[i].offsetHeight);
+            collection[i].classList.add("code-div-hidden");
+            collection[i].children[0].classList.add("code-div-fadeout");
+
+            collection[i].addEventListener("click", function () {
+                collection[i].style = "max-height:" + collection[i].dataset.height + "px;";
+                collection[i].classList.remove("code-div-hidden");
+                collection[i].children[0].classList.add("code-div-shown");
+            });
+        }
+    });
+</script>
