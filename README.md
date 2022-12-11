@@ -1,10 +1,22 @@
 # grid-portfolio-theme
 
+View on [https://bdshrk.github.io/](https://bdshrk.github.io/).
+
 <p align="center">
   <img src="screenshot.png">
 </p>
 
 ## Usage
+
+### GitHub Pages
+
+The theme can be easily used on GitHub pages by including the following in your `_config.yml`:
+
+```yaml
+remote_theme: bdshrk/grid-portfolio-theme
+```
+
+Make sure to remove any other references to themes from the config first!
 
 ### Layouts
 
@@ -48,6 +60,7 @@ Bug reports and pull requests are welcome on GitHub at [https://github.com/bdshr
 
 - jekyll-toc used in this theme is available [here](https://github.com/allejo/jekyll-toc).
 - The hover effect was modified from the original, which is available [here](https://codepen.io/nelsonr/pen/WNQaZPb).
+- Placeholder images from [https://placeholder.com/](https://placeholder.com/) and [https://placekitten.com/](https://placekitten.com/).
 
 ## License
 
