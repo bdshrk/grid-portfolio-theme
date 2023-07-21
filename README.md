@@ -1,7 +1,5 @@
 # grid-portfolio-theme
 
-View on [https://bdshrk.github.io/](https://bdshrk.github.io/).
-
 <p align="center">
   <img src="screenshot.png">
 </p>
